@@ -2,11 +2,15 @@ syntax = "proto3";
 
 option optimize_for = LITE_RUNTIME;
 
-package eu.softfire.tub;
+package eu.softfire.tub.messaging.grpc;
 
 service RegistrationService {
     rpc register (RegisterMessage) returns (ResponseMessage) { }
     rpc unregister (UnregisterMessage) returns (ResponseMessage) { }
+}
+
+service ManagerAgent {
+    rpc execute (RequestMessage) returns (ResponseMessage) { }
 }
 
 message RegisterMessage {
