@@ -38,9 +38,10 @@ message RequestMessage {
 message ResponseMessage {
     int32 result = 1;
     oneof message {
-        ListResourceResponse listResource = 2;
-        ProvideResourceResponse provideResource = 3;
+        ListResourceResponse list_resource = 2;
+        ProvideResourceResponse provide_resource = 3;
     }
+    string error_message = 4;
 }
 
 message ListResourceResponse {
