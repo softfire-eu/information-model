@@ -9,6 +9,7 @@ service RegistrationService {
 
 service ManagerAgent {
     rpc execute (RequestMessage) returns (ResponseMessage) { }
+    rpc create_user (UserInfo) returns (UserInfo) { }
 }
 
 message RegisterMessage {
@@ -48,7 +49,7 @@ message ListResourceResponse {
 }
 
 message ProvideResourceResponse {
-    repeated string resources = 1; // maybe to be changed
+    repeated Resource resources = 1; // maybe to be changed
 }
 
 message ResourceMetadata {
@@ -75,8 +76,10 @@ enum Testbed {
 message UserInfo {
     string id = 1;
     string name = 2;
+    string password = 3;
+    string ob_project_id = 4;
     // int32 is the vaule of the Testbed enum
-    map<int32, string> testbed_tenants = 3;
+    map<int32, string> testbed_tenants = 5;
 }
 
 message Resource {
