@@ -78,3 +78,8 @@ message UserInfo {
     // int32 is the vaule of the Testbed enum
     map<int32, string> testbed_tenants = 3;
 }
+
+message Resource {
+    string id = 1;
+    string content = 2;
+}
