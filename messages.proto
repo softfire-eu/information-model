@@ -2,8 +2,6 @@ syntax = "proto3";
 
 option optimize_for = LITE_RUNTIME;
 
-package eu.softfire.tub.messaging.grpc;
-
 service RegistrationService {
     rpc register (RegisterMessage) returns (ResponseMessage) { }
     rpc unregister (UnregisterMessage) returns (ResponseMessage) { }
@@ -33,6 +31,7 @@ enum Method {
 message RequestMessage {
     Method method = 1;
     string payload = 2; // maybe not needed
+    UserInfo user_info = 3;
 }
 
 message ResponseMessage {
@@ -56,4 +55,26 @@ message ResourceMetadata {
     string name = 1;
     string description = 2;
     int32 cardinality = 3;
+    Testbed testbed = 4;
+}
+
+enum Testbed {
+    SURREY = 0;
+    FOKUS = 1;
+    DT = 2;
+    ADS = 3;
+    ERICSSON = 4;
+
+    SURREY_DEV = 5;
+    FOKUS_DEV = 6;
+    DT_DEV = 7;
+    ADS_DEV = 8;
+    ERICSSON_DEV = 9;
+}
+
+message UserInfo {
+    string id = 1;
+    string name = 2;
+    // int32 is the vaule of the Testbed enum
+    map<int32, string> testbed_tenants = 3;
 }
