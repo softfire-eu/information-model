@@ -53,7 +53,7 @@ message ProvideResourceResponse {
 }
 
 message ResourceMetadata {
-    string name = 1;
+    string resource_id = 1;
     string description = 2;
     int32 cardinality = 3;
     Testbed testbed = 4;
