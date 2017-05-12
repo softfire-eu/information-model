@@ -57,6 +57,7 @@ message ResourceMetadata {
     string description = 2;
     int32 cardinality = 3;
     Testbed testbed = 4;
+    string node_type = 5;
 }
 
 enum Testbed {
@@ -71,6 +72,8 @@ enum Testbed {
     DT_DEV = 7;
     ADS_DEV = 8;
     ERICSSON_DEV = 9;
+
+    ANY = 10;
 }
 
 message UserInfo {
