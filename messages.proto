@@ -9,6 +9,7 @@ service RegistrationService {
 
 service ManagerAgent {
     rpc execute (RequestMessage) returns (ResponseMessage) { }
+    rpc refresh_resources (UserInfo) returns (ResponseMessage) { }
     rpc create_user (UserInfo) returns (UserInfo) { }
 }
 
@@ -40,8 +41,9 @@ message ResponseMessage {
     oneof message {
         ListResourceResponse list_resource = 2;
         ProvideResourceResponse provide_resource = 3;
+        RefreshResourceResponse refresh_resource = 4;
     }
-    string error_message = 4;
+    string error_message = 5;
 }
 
 message ListResourceResponse {
@@ -50,6 +52,10 @@ message ListResourceResponse {
 
 message ProvideResourceResponse {
     repeated Resource resources = 1; // maybe to be changed
+}
+
+message RefreshResourceResponse {
+    repeated ResourceMetadata resources = 1; // maybe to be changed
 }
 
 message ResourceMetadata {
