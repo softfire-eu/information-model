@@ -32,7 +32,7 @@ enum Method {
 
 message RequestMessage {
     Method method = 1;
-    string payload = 2; // maybe not needed
+    string payload = 2;
     UserInfo user_info = 3;
 }
 
@@ -51,11 +51,11 @@ message ListResourceResponse {
 }
 
 message ProvideResourceResponse {
-    repeated Resource resources = 1; // maybe to be changed
+    repeated Resource resources = 1;
 }
 
 message RefreshResourceResponse {
-    repeated ResourceMetadata resources = 1; // maybe to be changed
+    repeated ResourceMetadata resources = 1;
 }
 
 message ResourceMetadata {
