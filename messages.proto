@@ -28,6 +28,12 @@ enum Method {
     LIST_RESOURCES = 0;
     PROVIDE_RESOURCES = 1;
     RELEASE_RESOURCES = 2;
+    VALIDATE_RESOURCES = 3;
+}
+
+enum Result {
+    Ok = 0;
+    ERROR = 1;
 }
 
 message RequestMessage {
@@ -37,7 +43,7 @@ message RequestMessage {
 }
 
 message ResponseMessage {
-    int32 result = 1;
+    Result result = 1;
     oneof message {
         ListResourceResponse list_resource = 2;
         ProvideResourceResponse provide_resource = 3;
