@@ -5,6 +5,7 @@ option optimize_for = LITE_RUNTIME;
 service RegistrationService {
     rpc register (RegisterMessage) returns (ResponseMessage) { }
     rpc unregister (UnregisterMessage) returns (ResponseMessage) { }
+    rpc update_status (StatusMessage) returns (ResponseMessage) { }
 }
 
 service ManagerAgent {
@@ -22,6 +23,12 @@ message RegisterMessage {
 message UnregisterMessage {
     string name = 1;
     string endpoint = 2;
+}
+
+message StatusMessage {
+    repeated Resource resources = 1;
+    string username = 2;
+    string manager_name = 3;
 }
 
 enum Method {
