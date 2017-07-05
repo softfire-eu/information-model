@@ -9,9 +9,13 @@ service RegistrationService {
 }
 
 service ManagerAgent {
-    rpc execute (RequestMessage) returns (ResponseMessage) { }
-    rpc refresh_resources (UserInfo) returns (ResponseMessage) { }
-    rpc create_user (UserInfo) returns (UserInfo) { }
+    rpc execute (RequestMessage) returns (ResponseMessage) {}
+    rpc refresh_resources (UserInfo) returns (ResponseMessage) {}
+    rpc create_user (UserInfo) returns (UserInfo) {}
+    rpc delete_user (UserInfo) returns (Empty) {
+    }
+    rpc heartbeat (Empty) returns (Empty) {
+    }
 }
 
 message RegisterMessage {
@@ -107,4 +111,7 @@ message UserInfo {
 message Resource {
     string id = 1;
     string content = 2;
+}
+
+message Empty {
 }
