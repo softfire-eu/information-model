@@ -8,8 +8,7 @@
     exit 1
 }
 
-python -m pip install grpcio
-python -m pip install grpcio-tools
+python -m pip install grpcio grpcio-tools > /dev/null 2>&1
 
 # $1 = absolute path to folder where the .proto is
 # $2 = absolute output dir
