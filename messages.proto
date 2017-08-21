@@ -97,6 +97,8 @@ enum Testbed {
     ERICSSON_DEV = 9;
 
     ANY = 10;
+
+    TEST = 11;
 }
 
 message UserInfo {
